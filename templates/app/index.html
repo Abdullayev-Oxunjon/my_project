@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet"   href="{% static 'semantic_ui/semantic.min.css' %}">
+
+
+</head> 
+<body>
+
+ 
+
+        <div class="ui header segment">
+
+                <div class="ui container">
+
+                    <h1 class="ui header" style="color: #0d71bb">Tarixiy so'zlar</h1>
+
+                    <div class="ui divider"></div>
+                    <p style="color: #0e8c8c">Tarixiy so'zlar va ularning bugungi kundagi ma'nosi</p>
+
+                </div>
+        </div>
+ 
+        <div class="ui container">
+
+            <div class="ui placeholder segment">
+
+                <div class="ui icon header" style="color: #1aa62a">
+                    Tarixiy - Zamonaviy so'zlar
+
+                </div>
+
+                <div class="inline" style="width: 90%;">
+
+                    <div class="ui massive form search">
+    
+                        <form method="GET" action="/"  class="ui icon input" style="width: 100%;">
+    
+                            <input name="query" value="{{ query }}" class="prompt" type="text" placeholder="So'z kiriting ">
+                            <i class="search link icon"></i>
+    
+                        </form >
+    
+                    </div>
+    
+                </div>
+
+            </div>
+
+            <div class="ui piled segment">
+
+                <h4 class="ui header">Natija </h4>
+
+                <table  class="ui celled large green table">
+
+                    <thead>
+
+                        <tr> 
+
+                            <th style="color: darkblue"><i class="history icon"><b>Tarixiy</b></i></th>
+                            <th style="color: darkblue"><i class="globe icon"></i> Zamonaviy</th>
+
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% if natija %}
+                            {% for data in natija %}
+                        <tr>
+                            <td>{{ data.tarixiy }}</td>
+                            <td>{{ data.zamonaviy }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% endif %}
+                    </tbody>
+                    
+                </table>
+
+
+            </div>
+
+        </div>
+
+ 
+
+   
+    
+</body> 
+</html>  
+
+
